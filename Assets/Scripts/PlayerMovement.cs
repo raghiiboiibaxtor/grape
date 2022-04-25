@@ -7,28 +7,36 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D body;
     [SerializeField] private float speed;
     [SerializeField] private float jumpSpeed;
+    protected Animator anime;
+    
 
 
-    // Function declaration
+
+    // Game Play Functions Declaration (Awake = Initialise Game, Update = Run Code per Frame)
     private void Awake()
     {
+        // Grab game object references for private variables: Rigidbody & Animator
         body = GetComponent<Rigidbody2D>();
-
+        anime = GetComponent<Animator>();
 
     }
 
     private void Update()
     {
 
-
-        body.velocity = new Vector2(Input.GetAxis("Horizontal") * speed, body.velocity.y);
-
-
+        Walk();
 
         CharacterFlip();
         Jump();
+        Run(anime);
     }
 
+    // Function Declarations
+
+    void Walk()
+    {
+        body.velocity = new Vector2(Input.GetAxis("Horizontal") * speed, body.velocity.y);
+    }
 
     void Jump()
     {
@@ -54,4 +62,17 @@ public class PlayerMovement : MonoBehaviour
             transform.localScale = new Vector3(-1, 1, 1);
         }
     }
+
+    bool Run(Animator anime)
+    {
+        float horizontalInput = Input.GetAxis("Horizontal");
+        anime.SetBool("Run", horizontalInput != 0);
+        return true;
+    }
+
+
+
+
+
+
 }
