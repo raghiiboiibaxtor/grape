@@ -19,8 +19,13 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+
+
         body.velocity = new Vector2(Input.GetAxis("Horizontal") * speed, body.velocity.y);
 
+
+
+        CharacterFlip();
         Jump();
     }
 
@@ -30,10 +35,23 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKey(KeyCode.Space))
         {
             body.velocity = new Vector2(body.velocity.x, jumpSpeed);
-            
+
         }
 
     }
 
+    void CharacterFlip()
+    {
+        //Flip Character when turning
+        float horizontalInput = Input.GetAxis("Horizontal");
 
+        if (horizontalInput > 0.01f)
+        {
+            transform.localScale = Vector3.one;
+        }
+        else if (horizontalInput < -0.01f)
+        {
+            transform.localScale = new Vector3(-1, 1, 1);
+        }
+    }
 }
