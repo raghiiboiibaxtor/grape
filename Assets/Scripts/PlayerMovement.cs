@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private float jumpSpeed;
     protected Animator anime;
+    protected bool grounded = false;
     
 
 
@@ -23,32 +25,33 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-
+        
         Walk();
-
         CharacterFlip();
-        Jump();
+        Jump(anime);
         Run(anime);
     }
 
     // Function Declarations
 
-    void Walk()
+    private void Walk()
     {
         body.velocity = new Vector2(Input.GetAxis("Horizontal") * speed, body.velocity.y);
     }
 
-    void Jump()
+    private void Jump(Animator anime)
     {
-        if (Input.GetKey(KeyCode.Space))
+        anime.SetBool("Grounded", grounded);
+        anime.SetTrigger("Jump");
+        if (Input.GetKey(KeyCode.Space) && grounded) 
         {
             body.velocity = new Vector2(body.velocity.x, jumpSpeed);
-
+            grounded = false;
         }
-
+        
     }
 
-    void CharacterFlip()
+    private void CharacterFlip()
     {
         //Flip Character when turning
         float horizontalInput = Input.GetAxis("Horizontal");
@@ -63,7 +66,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    bool Run(Animator anime)
+    private bool Run(Animator anime)
     {
         float horizontalInput = Input.GetAxis("Horizontal");
         anime.SetBool("Run", horizontalInput != 0);
@@ -72,7 +75,12 @@ public class PlayerMovement : MonoBehaviour
 
 
 
-
-
-
+    // Detecting collisions between 2d objs
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Ground")
+        {
+            grounded = true;
+        }
+    }
 }
