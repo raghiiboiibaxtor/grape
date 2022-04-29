@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private float jumpSpeed;
     protected Animator anime;
-    protected bool grounded = false;
+    protected bool grounded = true;
     
 
 
@@ -25,32 +25,46 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        
-        Walk();
-        CharacterFlip();
-        Jump(anime);
+        // Accessing Character Methods
         Run(anime);
+        CharacterFlip();
+
+
+        // If Else Block detecting for Jump (Space key) pressed or remaining grounded.
+        if (Input.GetKey(KeyCode.Space) && grounded)
+        {
+
+            Jump(); //anime, grounded
+            anime.SetTrigger("Jump");
+
+
+        }
+        else
+        {
+            anime.SetBool("Grounded", grounded);
+   
+        }
+
+       
+       
+        
     }
 
     // Function Declarations
 
-    private void Walk()
+    // Jump Method
+    private bool Jump() 
     {
-        body.velocity = new Vector2(Input.GetAxis("Horizontal") * speed, body.velocity.y);
-    }
 
-    private void Jump(Animator anime)
-    {
+        body.velocity = new Vector2(body.velocity.x, jumpSpeed);
+        grounded = false;
         anime.SetBool("Grounded", grounded);
-        anime.SetTrigger("Jump");
-        if (Input.GetKey(KeyCode.Space) && grounded) 
-        {
-            body.velocity = new Vector2(body.velocity.x, jumpSpeed);
-            grounded = false;
-        }
-        
+       
+        return grounded;
     }
 
+
+    // Flip Character Left & Right
     private void CharacterFlip()
     {
         //Flip Character when turning
@@ -66,13 +80,14 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    // Run Method
     private bool Run(Animator anime)
     {
+        body.velocity = new Vector2(Input.GetAxis("Horizontal") * speed, body.velocity.y);
         float horizontalInput = Input.GetAxis("Horizontal");
         anime.SetBool("Run", horizontalInput != 0);
         return true;
     }
-
 
 
     // Detecting collisions between 2d objs
