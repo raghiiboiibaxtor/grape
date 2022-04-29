@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float jumpSpeed;
     protected Animator anime;
     protected bool grounded = true;
-    
+
 
 
 
@@ -42,24 +42,24 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             anime.SetBool("Grounded", grounded);
-   
+
         }
 
-       
-       
-        
+
+
+
     }
 
     // Function Declarations
 
     // Jump Method
-    private bool Jump() 
+    private bool Jump()
     {
 
         body.velocity = new Vector2(body.velocity.x, jumpSpeed);
         grounded = false;
         anime.SetBool("Grounded", grounded);
-       
+
         return grounded;
     }
 
@@ -98,4 +98,8 @@ public class PlayerMovement : MonoBehaviour
             grounded = true;
         }
     }
+
+
 }
+
+
