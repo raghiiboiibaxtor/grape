@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private LayerMask wallLayer;
 
-    // Private members
+    // Creating references.
     private Rigidbody2D body;
     private Animator anim;
     private BoxCollider2D boxCollider;
@@ -16,7 +16,7 @@ public class PlayerMovement : MonoBehaviour
     private float horizontalInput;
 
 
-    // Start-up Method
+    // Startup Method
     private void Awake()
     {
         //Grab references for rigidbody and animator from object
@@ -39,14 +39,14 @@ public class PlayerMovement : MonoBehaviour
 
         //Set animator parameters
         anim.SetBool("Run", horizontalInput != 0);
-        anim.SetBool("Grounded", isGrounded());
+        anim.SetBool("Grounded", Grounded());
 
         //Wall jump logic
         if (wallJumpCooldown > 0.2f)
         {
             body.velocity = new Vector2(horizontalInput * speed, body.velocity.y);
 
-            if (onWall() && !isGrounded())
+            if (WallRun() && !Grounded())
             {
                 body.gravityScale = 0;
                 body.velocity = Vector2.zero;
@@ -61,15 +61,17 @@ public class PlayerMovement : MonoBehaviour
             wallJumpCooldown += Time.deltaTime;
     }
 
+
+    // Class Methods
     private void Jump()
     {
         // IfElse block to determine behaviour if on the ground or on the wall.
-        if (isGrounded())
+        if (Grounded())
         {
             body.velocity = new Vector2(body.velocity.x, jumpPower);
             anim.SetTrigger("Jump");
         }
-        else if (onWall() && !isGrounded())
+        else if (WallRun() && !Grounded())
         {
             // IfElse to determine the velocity between actions whilst wall jumping.
             if (horizontalInput == 0)
@@ -84,7 +86,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private bool isGrounded()
+    private bool Grounded()
     {
         // Assigning RayCastHit variable with BoxCast
         RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, Vector2.down, 0.1f, groundLayer);
@@ -92,11 +94,18 @@ public class PlayerMovement : MonoBehaviour
         return raycastHit.collider != null;
         
     }
-    private bool onWall()
+    private bool WallRun()
     {
         // Changing the direction of box cast ray.
         RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, new Vector2(transform.localScale.x, 0), 0.1f, wallLayer);
         return raycastHit.collider != null;
+    }
+
+    public bool Attack()
+    {
+
+        // Retuirning conditions: Player can only throw if not moving, grounded and not on a wall.
+        return horizontalInput == 0 && Grounded() && !WallRun();
     }
 }
 
