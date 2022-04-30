@@ -1,7 +1,9 @@
 ﻿<Properties StartupConfiguration="{0608F408-A81F-B005-E89D-D87528CF2D78}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/PlayerMovement.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Projectile.cs">
     <Files>
-      <File FileName="Assets/Scripts/PlayerMovement.cs" Line="120" Column="1" />
+      <File FileName="Assets/Scripts/PlayerMovement.cs" Line="118" Column="1" />
+      <File FileName="Assets/Scripts/PlayerAttack.cs" Line="45" Column="11" />
+      <File FileName="Assets/Scripts/Projectile.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -9,7 +11,7 @@
           <Node name="grape" expanded="True">
             <Node name="Assets" expanded="True">
               <Node name="Scripts" expanded="True">
-                <Node name="PlayerMovement.cs" selected="True" />
+                <Node name="Projectile.cs" selected="True" />
               </Node>
             </Node>
           </Node>
@@ -19,7 +21,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="e7962223-36ff-4af8-954f-9dd1bdd1454c" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="c1da4a84-bcca-44ea-8fa0-63a938d8c9e6" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

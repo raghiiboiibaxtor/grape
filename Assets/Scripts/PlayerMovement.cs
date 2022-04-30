@@ -107,6 +107,13 @@ public class PlayerMovement : MonoBehaviour
         // Retuirning conditions: Player can only throw if not moving, grounded and not on a wall.
         return horizontalInput == 0 && Grounded() && !WallRun();
     }
+
+    public bool Throw()
+    {
+
+        // Retuirning conditions: Player can only throw if not moving, grounded and not on a wall.
+        return horizontalInput == 0 && Grounded() && !WallRun();
+    }
 }
 
 
