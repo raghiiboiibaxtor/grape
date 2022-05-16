@@ -11,16 +11,19 @@ public class CameraController : MonoBehaviour
 
     // Follow Player
     [SerializeField] private Transform player;
+    // Camera variables to look forward
+    [SerializeField] private float aheadDistance;
+    [SerializeField] private float cameraSpeed;
+    private float lookAhead;
 
 
     // Update is called once per frame
     void Update()
     {
-        // Using SmoothDamp method to smooth moving camera frames. Passing position, new position, velocity & speed as parameters.
-        //transform.position = Vector3.SmoothDamp(transform.position, new Vector3(currentPosX, transform.position.y, transform.position.z), ref velocity, speed * Time.deltaTime);
-
         // Follow Player : Moves camera with player on x axis, leaves y and z axis unchanged.
         transform.position = new Vector3(player.position.x, transform.position.y, transform.position.z);
+        // Camera will take player's position on x and add/minus aheadDistance to move slightly forward.
+        lookAhead = Mathf.Lerp(lookAhead, (aheadDistance * player.localScale.x), Time.deltaTime* cameraSpeed);
     }
 
     public void MoveToNewRoom(Transform _newroom)
