@@ -60,7 +60,6 @@
     <Compile Include="Assets/Scripts/Projectile.cs" />
     <Compile Include="Assets/Scripts/PlayerMovement.cs" />
     <Compile Include="Assets/Scripts/CameraController.cs" />
-    <Compile Include="Assets/Scripts/Door.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
