@@ -6,9 +6,11 @@ public class PlayerAttack : MonoBehaviour
 {
     // Creating References & Initialising Variables
     [SerializeField] private float attackCoolDown;
-    private float coolDownTimer = Mathf.Infinity; // Initialising the cool down timer to infinity- so that upon Awake() the player can shoot.
     [SerializeField] private Transform projectilePoint;
     [SerializeField] private GameObject[] projectiles;
+
+    private float coolDownTimer = Mathf.Infinity; // Initialising the cool down timer to infinity- so that upon Awake() the player can shoot.
+    // Grabbing animator
     private Animator anime;
 
     // Grabbing class: Player Movement from script. 
@@ -19,6 +21,8 @@ public class PlayerAttack : MonoBehaviour
     {
         anime = GetComponent<Animator>();
         playerMovement = GetComponent<PlayerMovement>();
+
+        coolDownTimer += Time.deltaTime;
     }
 
     // Update Method
@@ -29,6 +33,7 @@ public class PlayerAttack : MonoBehaviour
         {
             AttackHit();
         }
+
         // If user presses Key 'Z' button, player will throw.
         if (Input.GetKey(KeyCode.Z) && coolDownTimer > attackCoolDown && playerMovement.Throw())
         {
@@ -55,9 +60,21 @@ public class PlayerAttack : MonoBehaviour
 
         // Object pool projectile activation
         //Resetting projectile position
-        projectiles[0].transform.position = projectilePoint.position;
-        projectiles[0].GetComponent<Projectile>().SetDirection(Mathf.Sign(transform.localScale.x));
+        //projectiles[0].transform.position = projectilePoint.position;
+        //projectiles[0].GetComponent<Projectile>().SetDirection(Mathf.Sign(transform.localScale.x));
+
+        projectiles[FindProjectile()].transform.position = projectilePoint.position;
+        projectiles[FindProjectile()].GetComponent<Projectile>().SetDirection(Mathf.Sign(transform.localScale.x));
 
     }
 
+    private int FindProjectile()
+    {
+        for (int i = 0; i < projectiles.Length; i++)
+        {
+            if (!projectiles[i].activeInHierarchy)
+                return i;
+        }
+        return 0;
+    }
 }
