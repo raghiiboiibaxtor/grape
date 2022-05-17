@@ -20,7 +20,7 @@ public class Health : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.K))
         {
-            TakeDamage(01);
+            TakeDamage(0.25f);
         }
     }
 

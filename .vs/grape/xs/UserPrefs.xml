@@ -1,12 +1,12 @@
 ﻿<Properties StartupConfiguration="{0608F408-A81F-B005-E89D-D87528CF2D78}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Health/HealthBar.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/PlayerAttack.cs">
     <Files>
+      <File FileName="Assets/Scripts/Health/Health.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/PlayerAttack.cs" Line="59" Column="11" />
-      <File FileName="Assets/Scripts/PlayerMovement.cs" Line="118" Column="1" />
+      <File FileName="Assets/Scripts/PlayerMovement.cs" />
       <File FileName="Assets/Scripts/Projectile.cs" />
-      <File FileName="Assets/Scripts/CameraController.cs" Line="11" Column="47" />
-      <File FileName="Assets/Scripts/Health/Health.cs" Line="33" Column="22" />
-      <File FileName="Assets/Scripts/Health/HealthBar.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/CameraController.cs" />
+      <File FileName="Assets/Scripts/Health/HealthBar.cs" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -15,7 +15,7 @@
             <Node name="Assets" expanded="True">
               <Node name="Scripts" expanded="True">
                 <Node name="Health" expanded="True">
-                  <Node name="HealthBar.cs" selected="True" />
+                  <Node name="Health.cs" selected="True" />
                 </Node>
               </Node>
             </Node>
@@ -26,7 +26,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="3047376b-4a12-4edf-9ba8-044f1a38afd1" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="f126a7a5-2ae9-4415-9ff1-7c1829b613bf" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
