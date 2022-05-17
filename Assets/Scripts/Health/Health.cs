@@ -7,22 +7,18 @@ public class Health : MonoBehaviour
     [SerializeField] private float startingHealth;
     // Allowing for public access to get, but private access to set
     public float currentHealth {get; private set;}
-
+    private Animator anime;
+    // Ensuring the die animation does not loop by triggering bool dead.
+    private bool dead;
 
     // Start is called before the first frame update
     void Awake()
     {
         currentHealth = startingHealth;
+        anime = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            TakeDamage(0.25f);
-        }
-    }
+    
 
     public void TakeDamage(float _damage)
     {
@@ -30,11 +26,18 @@ public class Health : MonoBehaviour
 
         if (currentHealth > 0)
         {
-            ; // Hurt
+            anime.SetTrigger("Hurt");
         }
         else
         {
-            ; // Dead
+            if (!dead)
+            {
+                anime.SetTrigger("Die");
+                // Disabling player movement once dead
+                GetComponent<PlayerMovement>().enabled = false;
+                dead = true;
+            }
+
         }
 
 

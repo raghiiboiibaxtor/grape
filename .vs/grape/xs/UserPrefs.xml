@@ -1,12 +1,13 @@
 ﻿<Properties StartupConfiguration="{0608F408-A81F-B005-E89D-D87528CF2D78}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/PlayerAttack.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Enemy_Sideways.cs">
     <Files>
-      <File FileName="Assets/Scripts/Health/Health.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/PlayerMovement.cs" Line="118" Column="1" />
       <File FileName="Assets/Scripts/PlayerAttack.cs" Line="59" Column="11" />
-      <File FileName="Assets/Scripts/PlayerMovement.cs" />
       <File FileName="Assets/Scripts/Projectile.cs" />
       <File FileName="Assets/Scripts/CameraController.cs" />
-      <File FileName="Assets/Scripts/Health/HealthBar.cs" />
+      <File FileName="Assets/Scripts/Health/Health.cs" Line="38" Column="29" />
+      <File FileName="Assets/Scripts/Health/HealthBar.cs" Line="18" Column="1" />
+      <File FileName="Assets/Scripts/Enemy_Sideways.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -14,9 +15,8 @@
           <Node name="grape" expanded="True">
             <Node name="Assets" expanded="True">
               <Node name="Scripts" expanded="True">
-                <Node name="Health" expanded="True">
-                  <Node name="Health.cs" selected="True" />
-                </Node>
+                <Node name="Health" expanded="True" />
+                <Node name="Enemy_Sideways.cs" selected="True" />
               </Node>
             </Node>
           </Node>
