@@ -7,6 +7,7 @@ public class Health : MonoBehaviour
     [SerializeField] private float startingHealth;
     // Allowing for public access to get, but private access to set
     public float currentHealth {get; private set;}
+    
     private Animator anime;
     // Ensuring the die animation does not loop by triggering bool dead.
     private bool dead;
@@ -15,6 +16,7 @@ public class Health : MonoBehaviour
     void Awake()
     {
         currentHealth = startingHealth;
+      
         anime = GetComponent<Animator>();
     }
 
@@ -48,5 +50,7 @@ public class Health : MonoBehaviour
         currentHealth = Mathf.Clamp(currentHealth + _value, 0, startingHealth);
 
     }
+
+  
 
 }
