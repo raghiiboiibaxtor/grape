@@ -56,13 +56,14 @@
     <Analyzer Include="/Applications/Visual Studio.app/Contents/Resources/lib/monodevelop/AddIns/MonoDevelop.Unity/Analyzers/Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets/Scripts/Enemy_Sideways.cs" />
     <Compile Include="Assets/Scripts/PlayerAttack.cs" />
     <Compile Include="Assets/Scripts/Health/Health.cs" />
     <Compile Include="Assets/Scripts/CameraController.cs" />
     <Compile Include="Assets/Scripts/Projectile.cs" />
     <Compile Include="Assets/Scripts/PlayerMovement.cs" />
     <Compile Include="Assets/Scripts/Health/HealthBar.cs" />
-    <Compile Include="Assets/Scripts/Enemy_Sideways.cs" />
+    <Compile Include="Assets/Scripts/Health/HealthCollectible.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

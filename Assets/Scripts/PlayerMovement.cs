@@ -23,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
         body = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         boxCollider = GetComponent<BoxCollider2D>();
+        
     }
 
 
@@ -52,7 +53,7 @@ public class PlayerMovement : MonoBehaviour
                 body.velocity = Vector2.zero;
             }
             else
-                body.gravityScale = 8;
+                body.gravityScale = 3;
 
             if (Input.GetKey(KeyCode.Space))
                 Jump();
