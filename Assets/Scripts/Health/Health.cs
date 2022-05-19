@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
+   // [Header("Health")]
+
     [SerializeField] private float startingHealth;
     // Allowing for public access to get, but private access to set
     public float currentHealth {get; private set;}
-    
+   
+
     private Animator anime;
     // Ensuring the die animation does not loop by triggering bool dead.
     private bool dead;
@@ -38,6 +41,7 @@ public class Health : MonoBehaviour
                 // Disabling player movement once dead
                 GetComponent<PlayerMovement>().enabled = false;
                 dead = true;
+               
             }
 
         }
@@ -47,10 +51,9 @@ public class Health : MonoBehaviour
 
     public void AddHealth(float _value)
     {
-        currentHealth = Mathf.Clamp(currentHealth + _value, 0, startingHealth);
+        currentHealth = Mathf.Clamp(currentHealth + _value, 0, 1);
 
     }
 
-  
 
 }
