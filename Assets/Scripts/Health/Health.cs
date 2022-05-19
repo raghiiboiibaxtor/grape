@@ -4,23 +4,26 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-   // [Header("Health")]
-
+    [Header("Health")] // Unity Heading "Health"
     [SerializeField] private float startingHealth;
-    // Allowing for public access to get, but private access to set
-    public float currentHealth {get; private set;}
-   
-
+    public float currentHealth {get; private set; } // Allowing for public access to get, but private access to set
     private Animator anime;
-    // Ensuring the die animation does not loop by triggering bool dead.
-    private bool dead;
+    private bool dead; // Bool dead will ensure player dies.
+
+    [Header("iFrames")]
+    [SerializeField] private float iFramesDuration;
+    [SerializeField] private int numFlashes;
+    private SpriteRenderer sprite;
+
+
 
     // Start is called before the first frame update
     void Awake()
     {
-        currentHealth = startingHealth;
-      
+        //Grabbing components
         anime = GetComponent<Animator>();
+        sprite = GetComponent<SpriteRenderer>();
+        currentHealth = startingHealth; // Instantiating variables
     }
 
     
@@ -31,17 +34,21 @@ public class Health : MonoBehaviour
 
         if (currentHealth > 0)
         {
-            anime.SetTrigger("Hurt");
+
+            anime.SetTrigger("Hurt"); // Triggering "Hurt" animation
+            StartCoroutine(Invincibility());  // Setting iFrames for invincibility - using StartCorotine() to instantiate IEnumerator function
+
         }
         else
         {
+
             if (!dead)
             {
-                anime.SetTrigger("Die");
+                sprite.color = new Color(1, 0.004716992f, 0.3888731f, 0.8f);
+                anime.SetTrigger("Die"); // Triggering "Die" animation
                 // Disabling player movement once dead
                 GetComponent<PlayerMovement>().enabled = false;
                 dead = true;
-               
             }
 
         }
@@ -55,5 +62,27 @@ public class Health : MonoBehaviour
 
     }
 
+    // IEnumerator() Declared to yield returns
+    private IEnumerator Invincibility()
+    {
 
+        // Ignoring the collision of layer Player & Enemy (truw = colliosions ignored
+        Physics2D.IgnoreLayerCollision(7, 8, true);
+
+        // For loop to initialise invincibility flashing
+        for(int i = 0; i < numFlashes; i++)
+        {
+            // Changing sprite colour to deep red / magenta
+            sprite.color = new Color(1, 0.004716992f, 0.3888731f, 0.8f);
+            // Slowing function execution down using yield return
+            yield return new WaitForSeconds(iFramesDuration / (numFlashes * 2)); // iFramesDuration / numFlashes * 2 (red & white) avoids slow flashing
+            // Changing sprite colour back to white
+            sprite.color = new Color(1, 1, 1, 1);
+            yield return new WaitForSeconds(iFramesDuration / (numFlashes * 2));
+        }
+        
+            // Disabling invincibility
+        Physics2D.IgnoreLayerCollision(7, 8, false);
+
+    }
 }
