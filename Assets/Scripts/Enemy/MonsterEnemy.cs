@@ -19,11 +19,13 @@ public class MonsterEnemy : MonoBehaviour
     private Animator anime;
     private Health playerHealth;
 
+    private EnemyPatrol enemyPatrol;
+
 
     private void Awake()
     {
         anime = GetComponent<Animator>();
-
+        enemyPatrol = GetComponentInParent<EnemyPatrol>(); // Grabbing component from parent, not object 
     }
 
     private void Update()
@@ -41,10 +43,13 @@ public class MonsterEnemy : MonoBehaviour
                 coolDownTimer = 0;
                 anime.SetTrigger("Attack");
             }
-            else
+
+            // Enabling / Disabling Patrol when the player is in sight (so that enemy can still attack)
+            if(enemyPatrol != null)
             {
-                ;
+                enemyPatrol.enabled = !PlayerInSight();
             }
+
 
         }
 
