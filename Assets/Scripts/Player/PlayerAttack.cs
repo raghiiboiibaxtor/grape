@@ -49,14 +49,15 @@ public class PlayerAttack : MonoBehaviour
     {
         // Setting hit animation
         anime.SetTrigger("Attack");
-        //coolDownTimer = 0;
+
+       // coolDownTimer = 0;
     }
 
     private void AttackThrow()
     {
         // Setting throw animation
         anime.SetTrigger("Throw");
-        //coolDownTimer = 0;
+       // coolDownTimer = 0;
 
         // Object pool projectile activation
         //Resetting projectile position
@@ -77,4 +78,14 @@ public class PlayerAttack : MonoBehaviour
         }
         return 0;
     }
+
+    // Searching for Player + Enemy collisions
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.tag == "Enemy")
+        {
+            collision.GetComponent<Health>().TakeDamage(0.5f);
+        }
+    }
+
 }

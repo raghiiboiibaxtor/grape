@@ -65,13 +65,14 @@ public class MonsterEnemy : MonoBehaviour
 
 
         if (hit.collider != null)
+        {
             playerHealth = hit.transform.GetComponent<Health>();
+        }
 
         return hit.collider != null;  // Enemy 'sees' player by checking if collider is hit or not
 
       
     }
-
 
     // Function to visualise sight of enemy in Unity
     private void OnDrawGizmos()
@@ -80,7 +81,6 @@ public class MonsterEnemy : MonoBehaviour
         Gizmos.DrawWireCube(boxcol.bounds.center + transform.right * range * transform.localScale.x * colliderDistance,
             new Vector3(boxcol.bounds.size.x * range, boxcol.bounds.size.y, boxcol.bounds.size.z)); // Activate wireframe using box collider parameters
     }
-
 
     // Damage the player
     private void DamagePlayer()

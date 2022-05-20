@@ -25,7 +25,7 @@ public class EnemyPatrol : MonoBehaviour
     private void Awake()
     {
         initScale = enemy.localScale;
-        //anime = GetComponent<Animator>();
+        
     }
 
     // Method to disable moving animation

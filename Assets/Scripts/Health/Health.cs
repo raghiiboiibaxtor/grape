@@ -46,8 +46,26 @@ public class Health : MonoBehaviour
             {
                 sprite.color = new Color(1, 0.004716992f, 0.3888731f, 0.8f);
                 anime.SetTrigger("Die"); // Triggering "Die" animation
-                // Disabling player movement once dead
-                GetComponent<PlayerMovement>().enabled = false;
+
+                // Player
+                if (GetComponent<PlayerMovement>() != null) // If to avoid exceptions from executions
+                {
+                    GetComponent<PlayerMovement>().enabled = false; // Disabling player movement once dead
+                }
+                 
+
+                // Enemy
+                if (GetComponentInParent<EnemyPatrol>() != null)
+                {
+                    GetComponentInParent<EnemyPatrol>().enabled = false;
+                }
+
+                if(GetComponent<MonsterEnemy>() != null)
+                {
+                    GetComponent<MonsterEnemy>().enabled = false;
+                } 
+                
+
                 dead = true;
             }
 

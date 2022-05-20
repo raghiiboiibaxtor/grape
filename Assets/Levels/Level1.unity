@@ -5079,6 +5079,14 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 2074017352729688510, guid: e3e96874d008741498cf57611e7d7b74, type: 3}
+      propertyPath: m_Size.x
+      value: 2.3549225
+      objectReference: {fileID: 0}
+    - target: {fileID: 2074017352729688510, guid: e3e96874d008741498cf57611e7d7b74, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.45364115
+      objectReference: {fileID: 0}
     - target: {fileID: 2074017352729688511, guid: e3e96874d008741498cf57611e7d7b74, type: 3}
       propertyPath: m_Color.a
       value: 1
@@ -5107,6 +5115,14 @@ PrefabInstance:
     - target: {fileID: 2957586601168321325, guid: 97459abe2a1bf4c858d8bc35a52ac7b9, type: 3}
       propertyPath: m_Name
       value: SpikeEnemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 2957586601168321360, guid: 97459abe2a1bf4c858d8bc35a52ac7b9, type: 3}
+      propertyPath: m_Size.x
+      value: 2.6642747
+      objectReference: {fileID: 0}
+    - target: {fileID: 2957586601168321360, guid: 97459abe2a1bf4c858d8bc35a52ac7b9, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.0034418702
       objectReference: {fileID: 0}
     - target: {fileID: 2957586601168321362, guid: 97459abe2a1bf4c858d8bc35a52ac7b9, type: 3}
       propertyPath: m_RootOrder
@@ -5151,6 +5167,14 @@ PrefabInstance:
     - target: {fileID: 2957586601168321362, guid: 97459abe2a1bf4c858d8bc35a52ac7b9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2957586601168321367, guid: 97459abe2a1bf4c858d8bc35a52ac7b9, type: 3}
+      propertyPath: range
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2957586601168321367, guid: 97459abe2a1bf4c858d8bc35a52ac7b9, type: 3}
+      propertyPath: colliderDistance
+      value: 0.23
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 97459abe2a1bf4c858d8bc35a52ac7b9, type: 3}
