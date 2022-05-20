@@ -6,8 +6,7 @@ public class PlayerAttack : MonoBehaviour
 {
     // Creating References & Initialising Variables
     [SerializeField] private float attackCoolDown;
-    [SerializeField] private Transform projectilePoint;
-    [SerializeField] private GameObject[] projectiles;
+    
 
     private float coolDownTimer = Mathf.Infinity; // Initialising the cool down timer to infinity- so that upon Awake() the player can shoot.
     // Grabbing animator
@@ -34,11 +33,6 @@ public class PlayerAttack : MonoBehaviour
             AttackHit();
         }
 
-        // If user presses Key 'Z' button, player will throw.
-        if (Input.GetKey(KeyCode.Z) && coolDownTimer > attackCoolDown && playerMovement.Throw())
-        {
-            AttackThrow();
-        }
 
 
         //coolDownTimer += Time.deltaTime;
@@ -53,31 +47,6 @@ public class PlayerAttack : MonoBehaviour
        // coolDownTimer = 0;
     }
 
-    private void AttackThrow()
-    {
-        // Setting throw animation
-        anime.SetTrigger("Throw");
-       // coolDownTimer = 0;
-
-        // Object pool projectile activation
-        //Resetting projectile position
-        //projectiles[0].transform.position = projectilePoint.position;
-        //projectiles[0].GetComponent<Projectile>().SetDirection(Mathf.Sign(transform.localScale.x));
-
-        projectiles[FindProjectile()].transform.position = projectilePoint.position;
-        projectiles[FindProjectile()].GetComponent<Projectile>().SetDirection(Mathf.Sign(transform.localScale.x));
-
-    }
-
-    private int FindProjectile()
-    {
-        for (int i = 0; i < projectiles.Length; i++)
-        {
-            if (!projectiles[i].activeInHierarchy)
-                return i;
-        }
-        return 0;
-    }
 
     // Searching for Player + Enemy collisions
     private void OnTriggerEnter2D(Collider2D collision)

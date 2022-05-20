@@ -57,16 +57,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets/Scripts/Enemy/Enemy_Sideways.cs" />
+    <Compile Include="Assets/Scripts/Enemy/EnemyPatrol.cs" />
+    <Compile Include="Assets/Scripts/Enemy/MonsterEnemy.cs" />
+    <Compile Include="Assets/Scripts/Enemy/EnemyDamage.cs" />
     <Compile Include="Assets/Scripts/Health/HealthCollectible.cs" />
     <Compile Include="Assets/Scripts/Player/PlayerAttack.cs" />
     <Compile Include="Assets/Scripts/Health/Health.cs" />
     <Compile Include="Assets/Scripts/Settings/CameraController.cs" />
-    <Compile Include="Assets/Scripts/Player/Projectile.cs" />
     <Compile Include="Assets/Scripts/Player/PlayerMovement.cs" />
     <Compile Include="Assets/Scripts/Health/HealthBar.cs" />
-    <Compile Include="Assets/Scripts/Enemy/MonsterEnemy.cs" />
-    <Compile Include="Assets/Scripts/Enemy/EnemyPatrol.cs" />
-    <Compile Include="Assets/Scripts/Enemy/EnemyDamage.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

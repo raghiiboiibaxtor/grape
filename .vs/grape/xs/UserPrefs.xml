@@ -1,10 +1,9 @@
 ﻿<Properties StartupConfiguration="{0608F408-A81F-B005-E89D-D87528CF2D78}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Enemy/EnemyDamage.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Enemy/EnemyPatrol.cs">
     <Files>
-      <File FileName="Assets/Scripts/Player/Projectile.cs" Line="13" Column="6" />
-      <File FileName="Assets/Scripts/Player/PlayerAttack.cs" Line="60" Column="10" />
-      <File FileName="Assets/Scripts/Enemy/MonsterEnemy.cs" Line="83" Column="6" />
-      <File FileName="Assets/Scripts/Enemy/EnemyPatrol.cs" Line="83" Column="40" />
+      <File FileName="Assets/Scripts/Player/PlayerAttack.cs" Line="35" Column="10" />
+      <File FileName="Assets/Scripts/Enemy/MonsterEnemy.cs" Line="14" Column="29" />
+      <File FileName="Assets/Scripts/Enemy/EnemyPatrol.cs" Line="33" Column="1" />
       <File FileName="Assets/Scripts/Health/Health.cs" Line="62" Column="1" />
       <File FileName="Assets/Scripts/Enemy/EnemyDamage.cs" Line="12" Column="2" />
     </Files>
@@ -15,7 +14,7 @@
             <Node name="Assets" expanded="True">
               <Node name="Scripts" expanded="True">
                 <Node name="Enemy" expanded="True">
-                  <Node name="EnemyDamage.cs" selected="True" />
+                  <Node name="EnemyPatrol.cs" selected="True" />
                 </Node>
                 <Node name="Health" expanded="True" />
                 <Node name="Player" expanded="True" />
