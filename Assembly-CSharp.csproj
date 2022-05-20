@@ -66,6 +66,7 @@
     <Compile Include="Assets/Scripts/Settings/CameraController.cs" />
     <Compile Include="Assets/Scripts/Player/PlayerMovement.cs" />
     <Compile Include="Assets/Scripts/Health/HealthBar.cs" />
+    <Compile Include="Assets/Scripts/Settings/MainMenu.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
