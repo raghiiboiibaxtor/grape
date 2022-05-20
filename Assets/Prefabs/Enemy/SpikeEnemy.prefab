@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 2957586601168321360}
   - component: {fileID: 2957586601168321363}
   - component: {fileID: 2957586601168321367}
-  - component: {fileID: 7577201512661723272}
   m_Layer: 8
   m_Name: SpikeEnemy
   m_TagString: Enemy
@@ -159,24 +158,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fd946faace5c4956ac87969658900d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackCoolDown: 2.23
+  attackCoolDown: 5.5
   damage: 0.25
-  range: 1.23
+  range: 0.55
   boxcol: {fileID: 2957586601168321360}
-  colliderDistance: 2.23
+  colliderDistance: 0.55
   playerLayer:
     serializedVersion: 2
     m_Bits: 128
---- !u!114 &7577201512661723272
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2957586601168321325}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab09892229b2c48b6a037091007c2be5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 0.25

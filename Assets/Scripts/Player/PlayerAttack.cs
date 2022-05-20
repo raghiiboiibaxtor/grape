@@ -51,9 +51,11 @@ public class PlayerAttack : MonoBehaviour
     // Searching for Player + Enemy collisions
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "Enemy")
+       
+        if (collision.tag == "Enemy")
         {
-            collision.GetComponent<Health>().TakeDamage(0.5f);
+            collision.GetComponent<Health>()
+                .TakeDamage(0.5f);
         }
     }
 
